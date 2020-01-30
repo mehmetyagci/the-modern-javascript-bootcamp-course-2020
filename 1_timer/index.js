@@ -7,11 +7,11 @@ class Timer {
     this.startButton.addEventListener ('click', this.start);
   }
 
-  start () {
+  start = () => {
     //  console.log (this);
-    // console.log ('Time to start the timer!');
+    //  console.log ('Time to start the timer!');
     this.importantMethodToCall ();
-  }
+  };
 
   importantMethodToCall () {
     console.log ('IMPORTANT THING WAS DONE!!!');
@@ -23,4 +23,4 @@ const startButton = document.querySelector ('#start');
 const pauseButton = document.querySelector ('#pause');
 
 const timer = new Timer (durationInput, startButton, pauseButton);
-timer.start ();
+// timer.start ();
