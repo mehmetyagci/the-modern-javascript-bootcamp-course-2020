@@ -5,17 +5,23 @@ class Timer {
     this.pauseButton = pauseButton;
 
     this.startButton.addEventListener ('click', this.start);
+    this.pauseButton.addEventListener ('click', this.pause);
   }
 
   start = () => {
-    //  console.log (this);
-    //  console.log ('Time to start the timer!');
-    this.importantMethodToCall ();
+    this.tick ();
+    this.interval = setInterval (this.tick, 1000);
   };
 
-  importantMethodToCall () {
-    console.log ('IMPORTANT THING WAS DONE!!!');
-  }
+  pause = () => {
+    clearInterval (this.interval);
+  };
+
+  tick = () => {
+    //console.log ('tick');
+    const timeRemaining = parseFloat (this.durationInput.value);
+    this.durationInput.value = timeRemaining - 1;
+  };
 }
 
 const durationInput = document.querySelector ('#duration');
@@ -23,4 +29,4 @@ const startButton = document.querySelector ('#start');
 const pauseButton = document.querySelector ('#pause');
 
 const timer = new Timer (durationInput, startButton, pauseButton);
-// timer.start ();
+timer.start ();
