@@ -13,4 +13,3 @@ const timer = new Timer (durationInput, startButton, pauseButton, {
     console.log ('Timer is completed');
   },
 });
-// timer.start ();
